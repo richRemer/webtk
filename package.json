@@ -1,0 +1,15 @@
+{
+  "name": "webtk",
+  "version": "0.0.1",
+  "description": "web toolkit",
+  "main": "webtk.js",
+  "author": "Richard Remer <reanjr@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "tar c doc lib | tar x -C srv/dist && cp node_modules/require1k/require1k.js srv/dist/"
+  },
+  "devDependencies": {
+    "express": "^4.14.0",
+    "require1k": "^1.0.1"
+  }
+}
