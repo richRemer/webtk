@@ -9,14 +9,14 @@ listener will be immediately scheduled to execute if the event has already fired
 when the listener is added.
 
 ### ready(function)
-> Execute listener function when the default document (which defaults to the
-> global document) is ready.
-
-### ready(Document) => ready
-> Create a ready function with a different default document.
+> Add listener to default document.  The default document of the default ready
+> function is the global document.
 
 ### ready(Document, function)
 > Add listener to non-default document.
+
+### ready(Document) => ready
+> Create a ready function with updated default document.
 
 Example
 -------
