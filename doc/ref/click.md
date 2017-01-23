@@ -26,4 +26,4 @@ ready(() => {
 });
 ```
 
-**Demo:** [test case - click](../src/test/click.html)
+**Full Example:** [click](../src/test/click.html)

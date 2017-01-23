@@ -8,14 +8,15 @@ The document becomes ready when its `DOMContentLoaded` event has fired.  The
 listener will be immediately scheduled to execute if the event has already fired
 when the listener is added.
 
-### ready(Document) => ready
-> Create a ready function which uses a document other than the global one.
-
 ### ready(function)
-> Execute listener function when document is ready.
+> Execute listener function when the default document (which defaults to the
+> global document) is ready.
+
+### ready(Document) => ready
+> Create a ready function with a different default document.
 
 ### ready(Document, function)
-> Execute listener function when a document is ready.
+> Add listener to non-default document.
 
 Example
 -------
@@ -28,4 +29,4 @@ ready(() => {
 });
 ```
 
-**Demo:** [test case - ready](../src/test/ready.html)
+**Full Example:** [ready](../src/test/ready.html)
