@@ -1,38 +1,17 @@
 WebTK Reference: select
 =======================
-The `select` function queries the DOM using CSS selectors.  It is a thin wrapper
-around `Document.querySelector` and related functions.
+Query the DOM using CSS selector.
 
-### select(string) => Element[]
-> Select elements from the default context using a CSS selector.  The default
-> context of the default select function is the global document.
+**`select(string) => Element[]`**  
+**`select(object, string) => Element[]`**  
+**`select([object,] string, function)`**  
+**`select(object) => select`**  
 
-### select(object, string) => Element[]
-> Select elements from a non-default context object, which must be a Document or
-> Element instance.
-
-### select(object) => select
-> Create a select function with updated default context, which must be a
-> Document or Element instance.
-
-### select([object], string, function)
-> Execute a callback for each selected element, passing the element to the
-> callback.
-
-Example
--------
-```js
-const webtk = require("webtk");
-const ready = webtk.ready;
-const select = webtk.select;
-
-ready(() => {
-    select(".default", elem => elem.style.fontWeight = "800");
-
-    select(".important", elem => {
-        select(elem, "p", elem => elem.style.color = "red");
-    });
-});
-```
+The `select` function queries a DOM context object using a CSS selector, either
+returning the selected elements or passing each selected element to a callback
+function.  If a context object is passed to `select`, it must be a `Document` or
+`Element`.  The global document is used when no other context is provided.  This
+default context can be changed using the final form to return a new `select`
+function.
 
 **Full Example:** [select](../src/test/select.html)
