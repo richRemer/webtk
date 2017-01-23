@@ -4,7 +4,7 @@ The `click` function binds a listener function to be called when an element is
 clicked.  The listener is executed with the element set to `this`.
 
 ### click(Element, function)
-Execute listener function when an element is clicked.
+> Execute listener function when an element is clicked.
 
 Example
 -------

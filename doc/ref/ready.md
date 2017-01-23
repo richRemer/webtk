@@ -9,13 +9,13 @@ listener will be immediately scheduled to execute if the event has already fired
 when the listener is added.
 
 ### ready(Document) => ready
-Create a ready function which uses a document other than the global one.
+> Create a ready function which uses a document other than the global one.
 
 ### ready(function)
-Execute listener function when document is ready.
+> Execute listener function when document is ready.
 
 ### ready(Document, function)
-Execute listener function when a document is ready.
+> Execute listener function when a document is ready.
 
 Example
 -------
