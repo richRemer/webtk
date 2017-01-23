@@ -1,29 +1,10 @@
 WebTK Reference: click
 ======================
-The `click` function binds a listener function to be called when an element is
-clicked.  The listener is executed with `this` set to the clicked element.
+Add listener for DOM click event.
 
-### click(Element, function)
-> Execute listener function when an element is clicked.
+**`click(Element, function)`**
 
-Example
--------
-```js
-const webtk = require("webtk");
-const ready = webtk.ready;
-const click = webtk.click;
-
-function logname() {
-    console.log("Name:", this.name);
-}
-
-ready(() => {
-    const button = document.getElementById("my-button");
-
-    click(button, () => {
-        // do button-y things
-    });
-});
-```
+Add listener to be executed when a DOM element is clicked.  The listener is
+called with `this` bound to the element that was clicked.
 
 **Full Example:** [click](../src/test/click.html)
