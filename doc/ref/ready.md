@@ -1,33 +1,31 @@
 WebTK Reference: ready
 ======================
 The `ready` function binds a listener function to be called when the document is
-ready.  The exported function is bound to the global document object, and can be
-used to create new bindings to faciliate writing tests or working with multiple
-documents, such as when using frames.  In any case, the document object is
-passed to the listener when it is called.
+ready.  The listener is executed with the document set to `this`, and will be
+called even if the document is ready when the listener is added.
 
-The document is considered to be ready when its `DOMContentLoaded` event is
-fired.  If the `DOMContentLoaded` event has already been fired when a listener
-is added with the `ready` function, the listener will called when added by
-scheduling an asynchronous call in 0 seconds.
+The document becomes ready when its `DOMContentLoaded` event has fired.  The
+listener will be immediately scheduled to execute if the event has already fired
+when the listener is added.
 
 ### ready(Document) => ready
-Create a new ready function which is bound to a document.
+Create a ready function which uses a document other than the global one.
 
 ### ready(function)
 Execute listener function when document is ready.
 
 ### ready(Document, function)
-Execute listener function when provided document is ready.
+Execute listener function when a document is ready.
 
 Example
 -------
 ```js
 const webtk = require("webtk");
-const ready = webtk.ready
+const ready = webtk.ready;
 
-ready(doc => {
-    doc.getElementById("foo").value = 42;
+ready(() => {
+    const document = this;
+    document.getElementById("foo").value = 42;
 });
 ```
 
