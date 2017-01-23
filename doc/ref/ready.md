@@ -24,7 +24,6 @@ const webtk = require("webtk");
 const ready = webtk.ready;
 
 ready(() => {
-    const document = this;
     document.getElementById("foo").value = 42;
 });
 ```

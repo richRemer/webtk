@@ -1,9 +1,9 @@
 const ready = require("../../../lib/ready");
 const click = require("../../../lib/click");
 
-ready(function() {
-    const target = this.getElementById("target");
-    const trigger = this.getElementById("trigger");
+ready(() => {
+    const target = document.getElementById("target");
+    const trigger = document.getElementById("trigger");
 
     click(trigger, () => {
         target.textContent = "Activated";

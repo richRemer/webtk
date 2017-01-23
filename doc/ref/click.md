@@ -1,7 +1,7 @@
 WebTK Reference: click
 ======================
 The `click` function binds a listener function to be called when an element is
-clicked.  The listener is executed with the element set to `this`.
+clicked.  The listener is executed with `this` set to the clicked element.
 
 ### click(Element, function)
 > Execute listener function when an element is clicked.
@@ -18,7 +18,7 @@ function logname() {
 }
 
 ready(() => {
-    const button = this.getElementById("my-button");
+    const button = document.getElementById("my-button");
 
     click(button, () => {
         // do button-y things
