@@ -1,7 +1,8 @@
 WebTK Reference: template
 =========================
-The `template` function creates a `DocumentFragment` from a DOM `<template>`
-element.
+The `template` function creates a template from a DOM `<template>` element.  A
+template is a function which returns a string, `Element`, or `DocumentFragment`,
+which can be injected into the document.
 
 ### template(string) => function
 > Create template that selects a `<template>` element from the default context,
