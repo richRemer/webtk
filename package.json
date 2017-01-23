@@ -6,7 +6,7 @@
   "author": "Richard Remer <reanjr@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "prepublish": "tar c doc lib | tar x -C srv/dist && cp node_modules/require1k/require1k.js srv/dist/"
+    "prepublish": "tar c app doc lib | tar x -C srv/dist && cp node_modules/require1k/require1k.js srv/dist/"
   },
   "devDependencies": {
     "express": "^4.14.0",
