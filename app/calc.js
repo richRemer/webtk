@@ -2,23 +2,22 @@ const ready = require("../lib/ready");
 const click = require("../lib/click");
 const select = require("../lib/select");
 
-ready(function() {
-    var buttonsUi = this.getElementById("buttons"),
-        totalUi = this.getElementById("display-total"),
-        currentUi = this.getElementById("display-current"),
-        operatorUi = this.getElementById("display-operator"),
+ready(() => {
+    var buttonsUi = document.getElementById("buttons"),
+        totalUi = document.getElementById("display-total"),
+        currentUi = document.getElementById("display-current"),
+        operatorUi = document.getElementById("display-operator"),
         model = {total: 0, current: 0, op: "plus"};
 
-    select(this, "#buttons .digit", button => {
-        click(button, function() {
-            var digit = Number(this.dataset.digit);
-            model.current = model.current * 10 + digit;
+    select("#buttons .digit", button => {
+        click(button, () => {
+            model.current = model.current * 10 + Number(button.dataset.digit);
             refresh();
         });
     });
 
-    select(this, "#buttons .op", button => {
-        click(button, function() {
+    select("#buttons .op", button => {
+        click(button, () => {
             execute();
             model.op = button.dataset.op;
             refresh();
