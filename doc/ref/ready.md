@@ -2,9 +2,9 @@ WebTK Reference: ready
 ======================
 Call function when document is ready.
 
-**`ready(function)`**  
-**`ready(Document, function)`**  
-**`ready(Document) => ready`**  
+> `ready(function)`  
+> `ready(Document, function)`  
+> `ready(Document) => ready`  
 
 The `ready` function adds a listener which is called called when a document
 `DOMContentLoaded` event is fired, or immediately if the event has already
