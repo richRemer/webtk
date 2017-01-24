@@ -1,40 +1,23 @@
 WebTK Reference: template
 =========================
-The `template` function creates a template from a DOM `<template>` element.  A
-template is a function which returns a string, `Element`, or `DocumentFragment`,
-which can be injected into the document.
+Create **template** from a DOM `<template>` element.
 
-### template(string) => function
-> Create template that selects a `<template>` element from the default context,
-> clones it as a `DocumentFragment`, and returns the result.  The default
-> context of the default template function is the global document.
+> `template(string) => function`  
+> `template(object, string) => function`  
+> `template([object,] string, function) => function`  
+> `template(object) => template`  
 
-### template(object, string) => function
-> Create template that selects a `<template>` element from a non-default
-> context.
+The `template` function generates a **template** based on a DOM `<template>`.
+This resulting **template** can be called to generate a `DocumentFragment` or a
+string which can be injected into the DOM.  When the resulting **template** is
+called, an `Element` or `Document` context object is searched using a string to
+identify the DOM `<template>` *id* attribute.  This context object defaults to
+the global document.  Pass a single context object argument to the `template`
+function to get back an updated `template` with different default context.
 
-### template(object) => template
-> Create a template function with updated default context, which must be a
-> Document or Element instance.
-
-### template([object], string, function)
-> Create template which accepts a model argument.  When template is called, the
-> cloned `DocumentFragment` and model are passed to the provided bind function
-> before being returned.
-
-Example
--------
-```js
-const webtk = require("webtk");
-const template = webtk.template;
-
-const itemTemplate = template("item", (view, model) => {
-    Object.keys(model).forEach(key => {
-        view.querySelectorAll(`.${key}).forEach(elem => {
-            elem.textContent = model[key];
-        });
-    });
-});
-```
+If a function is passed to the `template` function, the resulting **template**
+will pass the extracted `<template>` element `DocumentFragment` to the function
+before returning the result, along with any additional arguments that are passed
+to the **template**.
 
 **Full Example:** [template](../src/test/template.html)
