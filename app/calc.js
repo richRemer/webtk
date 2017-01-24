@@ -1,14 +1,15 @@
 const ready = require("../lib/ready");
 const click = require("../lib/click");
+const select = require("../lib/select");
 
 ready(function() {
     var buttonsUi = this.getElementById("buttons"),
         totalUi = this.getElementById("display-total"),
         currentUi = this.getElementById("display-current"),
         operatorUi = this.getElementById("display-operator"),
-        model = {total: 0, current: 0, op: "+"};
+        model = {total: 0, current: 0, op: "plus"};
 
-    this.querySelectorAll("#buttons .digit").forEach(button => {
+    select(this, "#buttons .digit", button => {
         click(button, function() {
             var digit = Number(this.dataset.digit);
             model.current = model.current * 10 + digit;
@@ -16,22 +17,10 @@ ready(function() {
         });
     });
 
-    this.querySelectorAll("#buttons .op[data-op='minus']").forEach(button => {
+    select(this, "#buttons .op", button => {
         click(button, function() {
-            if (model.op === "-") model.total -= model.current;
-            if (model.op === "+") model.total += model.current;
-            model.current = 0;
-            model.op = "-";
-            refresh();
-        });
-    });
-
-    this.querySelectorAll("#buttons .op[data-op='plus']").forEach(button => {
-        click(button, function() {
-            if (model.op === "-") model.total -= model.current;
-            if (model.op === "+") model.total += model.current;
-            model.current = 0;
-            model.op = "+";
+            execute();
+            model.op = button.dataset.op;
             refresh();
         });
     });
@@ -40,5 +29,11 @@ ready(function() {
         totalUi.textContent = model.total;
         currentUi.textContent = model.current;
         operatorUi.textContent = model.op;
+    }
+
+    function execute() {
+        if (model.op === "minus") model.total -= model.current;
+        if (model.op === "plus") model.total += model.current;
+        model.current = 0;
     }
 });
